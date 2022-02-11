@@ -2,15 +2,12 @@ import multiprocessing
 import audioplayer
 
 class Player:
-    def __init__(self, status, play, process_kill, song):
-        self.status = {}
-        self.play = True
-        self.process_kill = False
-        self.song = song
+    def __init__(self):
+        pass
 
-    def start_sound(self):
-        audioplayer.AudioPlayer(self.song).play(block=True)
-        audioplayer.AudioPlayer(self.song).volume(5)
+    @staticmethod
+    def start_sound(song):
+        audioplayer.AudioPlayer(song).play(block=False)
 
 if __name__ == "__main__":
     song_list = ["lofi.mp3", "rain.mp3", "bells.mp3"]
@@ -19,8 +16,8 @@ if __name__ == "__main__":
         user_input = input("Enter> p- to play, s- to stop, q - to quit: ")
         if user_input == "p":
             ask_user = input("Choose song: ")
-            p = Player("playing", True, False, ("Music/" + ask_user + ".mp3"))
-            process = multiprocessing.Process(target=p.start_sound)
+            p = Player()
+            process = multiprocessing.Process(target=p.start_sound(f"Music/{ask_user}.mp3"))
             process_dict[ask_user] = process
             process.start()
         elif user_input == "s":
