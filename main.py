@@ -1,35 +1,43 @@
-from asyncio import start_server
-from concurrent.futures import thread
-import time
 import multiprocessing
 import audioplayer
 
 class Player:
-    def __init__(self, **kwargs):
-        # Shared Variable.
+    def __init__(self, status, play, process_kill, song):
+        self.status = {}
         self.play = True
-        self.thread_kill = False
-    
+        self.process_kill = False
+        self.song = song
+
     def start_sound(self):
-        while True and not self.thread_kill:
-            if self.play == True:
-                audioplayer.AudioPlayer("Music/lofi.mp3").play(block=True)
-    
-    def stop_sound(self):
-        pass
+        audioplayer.AudioPlayer(self.song).play(block=True)
+        audioplayer.AudioPlayer(self.song).volume(5)
 
-    def start_thread(self):
-        self.play = True
-        p1 = multiprocessing.Process(name="thread1", target=start_sound)
-        p1.start()
-        p1.join()
-        
-    def run(self):
-        user_input = input(">> ")
+if __name__ == "__main__":
+    song_list = ["lofi.mp3", "rain.mp3", "bells.mp3"]
+    process_dict = {}
+    while True:
+        user_input = input("Enter> p- to play, s- to stop, q - to quit: ")
         if user_input == "p":
-            self.start_thread()
-            
+            ask_user = input("Choose song: ")
+            p = Player("playing", True, False, ("Music/" + ask_user + ".mp3"))
+            process = multiprocessing.Process(target=p.start_sound)
+            process_dict[ask_user] = process
+            process.start()
+        elif user_input == "s":
+            u_input = input("Which process you want to stop?(?type 'all' to delete all): ")
+            if u_input == "all":
+                for process in process_dict.values():
+                    print(type(process))
+                    process.terminate()
+            else:
+                if u_input in process_dict.keys():
+                    process_dict[u_input.lower().strip()].terminate()
+                else:
+                    print("Process does not exist!")
+                
 
-p2 = Player()
-p2.run()
-        
+        elif user_input == "q":
+            for process in process_dict.values():
+                print(type(process))
+                process.terminate()
+            quit()

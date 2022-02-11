@@ -1,6 +1,5 @@
 import multiprocessing
 import audioplayer
-from click import prompt
 
 class Player:
     def __init__(self, status, play, process_kill, song):
@@ -11,12 +10,7 @@ class Player:
 
     def start_sound(self):
         audioplayer.AudioPlayer(self.song).play(block=True)
-        audioplayer.AudioPlayer(self.song).volume(20)
-
-    # def start_process(self):
-    #     process = multiprocessing.Process(target=self.start_sound)
-    #     process.start()
-
+        audioplayer.AudioPlayer(self.song).volume(5)
 
 if __name__ == "__main__":
     song_list = ["lofi.mp3", "rain.mp3", "bells.mp3"]
@@ -47,12 +41,3 @@ if __name__ == "__main__":
                 print(type(process))
                 process.terminate()
             quit()
-
-
-
-
-prompt
-PLayer.play_song
-prompt
-player.stop(....)
-player.stopall
