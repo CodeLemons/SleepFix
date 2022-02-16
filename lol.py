@@ -1,2 +1,0 @@
-lol = {}
-help(lol)

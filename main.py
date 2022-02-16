@@ -1,43 +1,51 @@
+from kivy.app import App
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.label import Label
+from kivy.uix.image import Image
+from kivy.uix.button import Button
+from kivy.uix.textinput import TextInput
+from kivy.uix.widget import Widget
+import pygame
 import multiprocessing
-import audioplayer
 
-class Player:
-    def __init__(self, status, play, process_kill, song):
-        self.status = {}
-        self.play = True
-        self.process_kill = False
-        self.song = song
+import pygments
 
-    def start_sound(self):
-        audioplayer.AudioPlayer(self.song).play(block=True)
-        audioplayer.AudioPlayer(self.song).volume(5)
+pygame.mixer.pre_init(frequency = 44100, size = -16, channels = 1, buffer = 2**12)
+pygame.mixer.init()
 
-if __name__ == "__main__":
-    song_list = ["lofi.mp3", "rain.mp3", "bells.mp3"]
-    process_dict = {}
-    while True:
-        user_input = input("Enter> p- to play, s- to stop, q - to quit: ")
-        if user_input == "p":
-            ask_user = input("Choose song: ")
-            p = Player("playing", True, False, ("Music/" + ask_user + ".mp3"))
-            process = multiprocessing.Process(target=p.start_sound)
-            process_dict[ask_user] = process
-            process.start()
-        elif user_input == "s":
-            u_input = input("Which process you want to stop?(?type 'all' to delete all): ")
-            if u_input == "all":
-                for process in process_dict.values():
-                    print(type(process))
-                    process.terminate()
-            else:
-                if u_input in process_dict.keys():
-                    process_dict[u_input.lower().strip()].terminate()
-                else:
-                    print("Process does not exist!")
-                
+rain = pygame.mixer.Sound('Music/rain.mp3')
+bells = pygame.mixer.Sound('Music/bells.mp3')
 
-        elif user_input == "q":
-            for process in process_dict.values():
-                print(type(process))
-                process.terminate()
-            quit()
+class SleepFix(App):
+    def build(self):
+        self.window = GridLayout()
+        self.window.cols = 1
+
+        self.window.add_widget(Image(source='Img/cloud.png'))
+        
+        self.button = Button(text='RAIN')
+        self.button.bind(on_press=self.rain)
+        self.window.add_widget(self.button)
+       
+        self.button = Button(text='BELLS')
+        self.button.bind(on_press=self.bells)
+        self.window.add_widget(self.button)
+
+        return self.window
+
+
+    def rain(self, instance):
+        channel_one = pygame.mixer.Channel(0)
+        channel_one.play(rain, fade_ms=500)
+        print("Rain Button Pressed")
+        
+    def bells(self, instance):
+        channel_one = pygame.mixer.Channel(1)
+        channel_one.play(bells, fade_ms=500)
+        print("Bells Button Pressed")
+
+    # @staticmethod
+    # def play_sound(sound, n):
+        
+if __name__ == '__main__':
+    SleepFix().run()
