@@ -13,10 +13,6 @@
 #             radius: [30]
 
 <FloatLayout>:
-
-    Image:
-        id: start_sound1
-        pos_hint: {"x":-0.43, "top":1.4}
         
     # Image:
     #     id: a1
@@ -26,10 +22,47 @@
         background_normal: 'Img/cloudsz.png'
         background_down: 'Img/cloudsz.png'
         size_hint: None, None
-        size: 512, 512
+        size: 160, 160
         #pos: '150dp','340dp'
-        pos: '100dp', '30dp'
+        pos: '50dp', '150dp'
         on_press: app.rain()
+
+    Button:
+        background_normal: 'Img/cloudsz.png'
+        background_down: 'Img/cloudsz.png'
+        size_hint: None, None
+        size: 160, 160
+        #pos: '150dp','340dp'
+        pos: '185dp', '150dp'
+        on_press: app.fire()
+
+    Button:
+        background_normal: 'Img/cloudsz.png'
+        background_down: 'Img/cloudsz.png'
+        size_hint: None, None
+        size: 160, 160
+        #pos: '150dp','340dp'
+        pos: '320dp', '150dp'
+        on_press: app.rainoncar()
+
+    Button:
+        background_normal: 'Img/cloudsz.png'
+        background_down: 'Img/cloudsz.png'
+        size_hint: None, None
+        size: 160, 160
+        #pos: '150dp','340dp'
+        pos: '455dp', '150dp'
+        on_press: app.seawaves()
+
+    Button:
+        background_normal: 'Img/cloudsz.png'
+        background_down: 'Img/cloudsz.png'
+        size_hint: None, None
+        size: 160, 160
+        #pos: '150dp','340dp'
+        pos: '590dp', '150dp'
+        on_press: app.wind()
+
 
     # RoundedButton:
     #     text: ""
