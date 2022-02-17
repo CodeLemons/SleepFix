@@ -1,0 +1,44 @@
+<Image>:
+    source:'Img/cloud.png'
+
+# <RoundedButton@Button>:
+#     background_color: (0,0,0,0)
+#     background_NORMAL: ''
+#     canvas.before:
+#         Color:
+#             rgba: (.16, .18, .22, 1)
+#         RoundedRectangle:
+#             size: self.size
+#             pos: self.pos
+#             radius: [30]
+
+<FloatLayout>:
+
+    Image:
+        id: start_sound1
+        pos_hint: {"x":-0.43, "top":1.4}
+        
+    # Image:
+    #     id: a1
+    #     pos_hint: {"x":-0.31, "top":1.4}
+        
+    Button:
+        background_normal: 'Img/cloudsz.png'
+        background_down: 'Img/cloudsz.png'
+        size_hint: None, None
+        size: 512, 512
+        #pos: '150dp','340dp'
+        pos: '100dp', '30dp'
+        on_press: app.rain()
+
+    # RoundedButton:
+    #     text: ""
+    #     #font_size: 12
+    #     size: 100, 75
+    #     size_hint: None, None
+    #     pos: '150dp','370dp'
+    #     on_press: app.start_sound1()
+    #     #background_color: (.16, .18, .22, 1)
+    #     Image:
+    #         source: 'Img/cloud_down.png'
+    #         pos: '150dp','360dp'
