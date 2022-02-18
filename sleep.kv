@@ -1,77 +1,98 @@
-<Image>:
-    source:'Img/cloud.png'
-
-# <RoundedButton@Button>:
-#     background_color: (0,0,0,0)
-#     background_NORMAL: ''
-#     canvas.before:
-#         Color:
-#             rgba: (.16, .18, .22, 1)
-#         RoundedRectangle:
-#             size: self.size
-#             pos: self.pos
-#             radius: [30]
-
 <FloatLayout>:
-        
-    # Image:
-    #     id: a1
-    #     pos_hint: {"x":-0.31, "top":1.4}
-        
+
     Button:
-        background_normal: 'Img/cloudsz.png'
-        background_down: 'Img/cloudsz.png'
+        background_normal: 'Img/rain_normal.png'
+        background_down: 'Img/rain_down.png'
         size_hint: None, None
-        size: 160, 160
-        #pos: '150dp','340dp'
-        pos: '50dp', '150dp'
+        size: 190, 190
+        pos: 52,240
         on_press: app.rain()
 
     Button:
-        background_normal: 'Img/cloudsz.png'
-        background_down: 'Img/cloudsz.png'
+        background_normal: 'Img/fire_normal.png'
+        background_down: 'Img/fire_down.png'
         size_hint: None, None
-        size: 160, 160
-        #pos: '150dp','340dp'
-        pos: '185dp', '150dp'
+        size: 190, 190
+        pos: 242,240
         on_press: app.fire()
 
     Button:
-        background_normal: 'Img/cloudsz.png'
-        background_down: 'Img/cloudsz.png'
+        background_normal: 'Img/raincar_normal_fill.png'
+        background_down: 'Img/raincar_down_fill.png'
         size_hint: None, None
-        size: 160, 160
-        #pos: '150dp','340dp'
-        pos: '320dp', '150dp'
+        size: 190, 190
+        pos: 432,240
         on_press: app.rainoncar()
 
     Button:
-        background_normal: 'Img/cloudsz.png'
-        background_down: 'Img/cloudsz.png'
+        background_normal: 'Img/waves_normal.png'
+        background_down: 'Img/waves_down.png'
         size_hint: None, None
-        size: 160, 160
-        #pos: '150dp','340dp'
-        pos: '455dp', '150dp'
+        size: 190, 190
+        pos: 622,240
         on_press: app.seawaves()
 
     Button:
-        background_normal: 'Img/cloudsz.png'
-        background_down: 'Img/cloudsz.png'
+        background_normal: 'Img/wind_normal.png'
+        background_down: 'Img/wind_down.png'
         size_hint: None, None
-        size: 160, 160
-        #pos: '150dp','340dp'
-        pos: '590dp', '150dp'
+        size: 190, 190
+        pos: 812,240
         on_press: app.wind()
 
+    Slider:
+        min:0.000
+        max:1.000
+        value: 0.2
+        step: 0.01
+        orientation: 'horizontal'
+        size_hint: None, None
+        size: sp(135), sp(135)
+        pos: 78,160
+        on_value: app.rain_volume(*args)
+    
+    Slider:
+        min:0.000
+        max:1.000
+        value: 0.2
+        step: 0.01
+        orientation: 'horizontal'
+        size_hint: None, None
+        size: sp(135), sp(135)
+        pos: 268,160
+        on_value: app.fire_volume(*args)
 
-    # RoundedButton:
-    #     text: ""
-    #     #font_size: 12
-    #     size: 100, 75
-    #     size_hint: None, None
-    #     pos: '150dp','370dp'
-    #     on_press: app.start_sound1()
-    #     #background_color: (.16, .18, .22, 1)
-    #     Image:
-    #         source: 'Img/cloud_down.png'
-    #         pos: '150dp','360dp'
+    Slider:
+        min:0.000
+        max:1.000
+        value: 0.2
+        step: 0.01
+        orientation: 'horizontal'
+        size_hint: None, None
+        size: sp(135), sp(135)
+        pos: 458,160
+        on_value: app.rainoncar_volume(*args)
+
+    Slider:
+        min:0.000
+        max:1.000
+        value: 0.2
+        step: 0.01
+        orientation: 'horizontal'
+        size_hint: None, None
+        size: sp(135), sp(135)
+        pos: 648,160
+        on_value: app.seawaves_volume(*args)
+
+    Slider:
+        min:0.000
+        max:1.000
+        value: 0.2
+        step: 0.01
+        orientation: 'horizontal'
+        size_hint: None, None
+        size: sp(135), sp(135)
+        pos: 838,160
+        on_value: app.wind_volume(*args)
+
+        
