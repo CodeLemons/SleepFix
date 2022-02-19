@@ -39,29 +39,28 @@ class SleepApp(App):
     
     def rain(self):
         channel_one.play(rain, fade_ms=0, loops=-1)
-        channel_one.set_volume(0.2)
-        print(f"Volume set to {0.002}")
+        channel_one.set_volume(0.1)
         print("Rain sound started.")
 
         
     def fire(self):
         channel_two.play(fire, fade_ms=0, loops=-1)
-        channel_two.set_volume(0.2)
+        channel_two.set_volume(0.1)
         print("Fire Place sound started.")
     
     def rainoncar(self):
         channel_three.play(rainoncar, fade_ms=0, loops=-1)
-        channel_three.set_volume(0.2)
+        channel_three.set_volume(0.1)
         print("Rain on car sound started.")
 
     def seawaves(self):
         channel_four.play(seawaves, fade_ms=0, loops=-1)
-        channel_four.set_volume(0.2)
+        channel_four.set_volume(0.1)
         print("Sea Waves sound started.")
 
     def wind(self):
         channel_five.play(wind, fade_ms=0, loops=-1)
-        channel_five.set_volume(0.2)
+        channel_five.set_volume(0.1)
         print("Wind sound started.")
 
     def rain_volume(self, *args):
