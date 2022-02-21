@@ -2,6 +2,7 @@
 
 An application that harmonizes different sounds to the users liking for a better sleeping experience.
 Test
+test2
 
 ## Getting started
 
