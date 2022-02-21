@@ -1,6 +1,7 @@
 # SleepFix
 
 An application that harmonizes different sounds to the users liking for a better sleeping experience.
+Test
 
 ## Getting started
 
