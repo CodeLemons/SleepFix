@@ -4,17 +4,16 @@ Config.set('graphics', 'resizable', False)
 from kivy.utils import get_color_from_hex
 from kivy.uix.floatlayout import FloatLayout
 from kivy.core.window import Window
-from kivy.properties import ObjectProperty
 import pygame
 
 pygame.mixer.pre_init(frequency = 44100, size = -16, channels = 1, buffer = 2**12)
 pygame.mixer.init()
 
-rain = pygame.mixer.Sound('Music/rainthunder.mp3')
-fire = pygame.mixer.Sound('Music/fireplace.mp3')
-rainoncar = pygame.mixer.Sound('Music/rainoncar.mp3')
-seawaves = pygame.mixer.Sound('Music/seawaves.mp3')
-wind = pygame.mixer.Sound('Music/wind.mp3')
+rainsound = pygame.mixer.Sound('Music/rainthunder.mp3')
+firesound = pygame.mixer.Sound('Music/fireplace.mp3')
+rainoncarsound = pygame.mixer.Sound('Music/rainoncar.mp3')
+seawavessound = pygame.mixer.Sound('Music/seawaves.mp3')
+windsound = pygame.mixer.Sound('Music/wind.mp3')
 rain_vol_list = list()
 fire_vol_list = list()
 rainoncar_vol_list = list()
@@ -38,28 +37,28 @@ class SleepApp(App):
 
     
     def rain(self):
-        channel_one.play(rain, fade_ms=0, loops=-1)
-        channel_one.set_volume(0.1)
-        print("Rain sound started.")
+            channel_one.play(rainsound, fade_ms=0, loops=-1)
+            channel_one.set_volume(0.1)
+            print("Rain sound started.")
 
         
     def fire(self):
-        channel_two.play(fire, fade_ms=0, loops=-1)
+        channel_two.play(firesound, fade_ms=0, loops=-1)
         channel_two.set_volume(0.1)
         print("Fire Place sound started.")
     
     def rainoncar(self):
-        channel_three.play(rainoncar, fade_ms=0, loops=-1)
+        channel_three.play(rainoncarsound, fade_ms=0, loops=-1)
         channel_three.set_volume(0.1)
         print("Rain on car sound started.")
 
     def seawaves(self):
-        channel_four.play(seawaves, fade_ms=0, loops=-1)
+        channel_four.play(seawavessound, fade_ms=0, loops=-1)
         channel_four.set_volume(0.1)
         print("Sea Waves sound started.")
 
     def wind(self):
-        channel_five.play(wind, fade_ms=0, loops=-1)
+        channel_five.play(windsound, fade_ms=0, loops=-1)
         channel_five.set_volume(0.1)
         print("Wind sound started.")
 
