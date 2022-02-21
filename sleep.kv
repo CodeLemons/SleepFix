@@ -2,8 +2,8 @@
 <FloatLayout>:
 
     Button:
-        background_normal: 'Img/rain_normal.png'
-        background_down: 'Img/rain_down.png'
+        background_normal: 'Img/alternaterainnormal.png'
+        background_down: 'Img/alternateraindownl.png'
         size_hint: None, None
         size: 190, 190
         pos: 52,240
@@ -41,6 +41,46 @@
         pos: 812,240
         on_press: app.wind()
 
+    Button:
+        background_normal: 'Img/wind_normal.png'
+        background_down: 'Img/wind_down.png' 
+        size_hint: None, None
+        size: 190, 190
+        pos: 812,240
+        on_press: app.wind()
+
+    Button:
+        background_normal: 'Img/wind_normal.png'
+        background_down: 'Img/wind_down.png'
+        size_hint: None, None
+        size: 190, 190
+        pos: 812,240
+        on_press: app.wind()
+
+    Button:
+        background_normal: 'Img/wind_normal.png'
+        background_down: 'Img/wind_down.png'
+        size_hint: None, None
+        size: 190, 190
+        pos: 812,240
+        on_press: app.wind()
+
+    Button:
+        background_normal: 'Img/wind_normal.png'
+        background_down: 'Img/wind_down.png'
+        size_hint: None, None
+        size: 190, 190
+        pos: 812,240
+        on_press: app.wind()
+
+    Button:
+        background_normal: 'Img/wind_normal.png'
+        background_down: 'Img/wind_down.png'
+        size_hint: None, None
+        size: 190, 190
+        pos: 812,240
+        on_press: app.wind()
+
 
     Slider:
         min:0.000
@@ -51,7 +91,7 @@
         size_hint: None, None
         size: sp(135), sp(135)
         pos: 78,160
-        on_value: app.rain(*args)
+        on_value: app.rain_volume(*args)
     
     Slider:
         min:0.000
