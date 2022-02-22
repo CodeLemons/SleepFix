@@ -1,5 +1,4 @@
 from distutils.fancy_getopt import fancy_getopt
-from re import L
 from kivy.app import App
 from kivy.config import Config
 Config.set('graphics', 'resizable', False)
