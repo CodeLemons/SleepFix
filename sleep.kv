@@ -1,85 +1,92 @@
 #:kivy 2.0.0
 <FloatLayout>:
 
-    Button:
-        background_normal: 'Img/alternaterainnormal.png'
-        background_down: 'Img/alternateraindownl.png'
+    Image:
+        source: 'Img/logo.png'
         size_hint: None, None
-        size: 190, 190
-        pos: 52,240
+        allow_strech: True
+        keep_ratio: False
+        size: 500, 200
+        pos: 260, 430
+    Button:
+        background_normal: 'Img/rain_normal.png'
+        background_down: 'Img/rain_down.png'
+        size_hint: None, None
+        size: 170, 170
+        pos: 52,70
         on_press: app.rain()
 
     Button:
         background_normal: 'Img/fire_normal.png'
         background_down: 'Img/fire_down.png'
         size_hint: None, None
-        size: 190, 190
-        pos: 242,240
+        size: 170, 170
+        pos: 242,70
         on_press: app.fire()
 
     Button:
-        background_normal: 'Img/raincar_normal_fill.png'
-        background_down: 'Img/raincar_down_fill.png'
+        background_normal: 'Img/raincar_normal.png'
+        background_down: 'Img/raincar_down.png'
         size_hint: None, None
-        size: 190, 190
-        pos: 432,240
+        size: 170, 170
+        pos: 432,70
         on_press: app.rainoncar()
 
     Button:
         background_normal: 'Img/waves_normal.png'
         background_down: 'Img/waves_down.png'
         size_hint: None, None
-        size: 190, 190
-        pos: 622,240
+        size: 170, 170
+        pos: 622,70
         on_press: app.seawaves()
 
     Button:
         background_normal: 'Img/wind_normal.png'
         background_down: 'Img/wind_down.png'
         size_hint: None, None
-        size: 190, 190
-        pos: 812,240
+        size: 170, 170
+        pos: 812,70
         on_press: app.wind()
 
     Button:
         background_normal: 'Img/wind_normal.png'
         background_down: 'Img/wind_down.png' 
         size_hint: None, None
-        size: 190, 190
-        pos: 812,240
-        on_press: app.wind()
+        size: 170, 170
+        pos: 52,265
+        on_press: app.forest()
 
     Button:
         background_normal: 'Img/wind_normal.png'
         background_down: 'Img/wind_down.png'
         size_hint: None, None
-        size: 190, 190
-        pos: 812,240
-        on_press: app.wind()
+        size: 170, 170
+        pos: 242,265
+        on_press: app.jazz()
 
     Button:
         background_normal: 'Img/wind_normal.png'
         background_down: 'Img/wind_down.png'
         size_hint: None, None
-        size: 190, 190
-        pos: 812,240
-        on_press: app.wind()
+        size: 170, 170
+        pos: 432,265
+        on_press: app.lofi()
 
     Button:
         background_normal: 'Img/wind_normal.png'
         background_down: 'Img/wind_down.png'
         size_hint: None, None
-        size: 190, 190
-        pos: 812,240
-        on_press: app.wind()
+        size: 170, 170
+        pos: 622,265
+        on_press: app.tibet()
 
     Button:
         background_normal: 'Img/wind_normal.png'
         background_down: 'Img/wind_down.png'
         size_hint: None, None
-        size: 190, 190
-        pos: 812,240
-        on_press: app.wind()
+        size: 170, 170
+        pos: 812,265
+        on_press: app.crowd()
 
 
     Slider:
@@ -90,7 +97,7 @@
         orientation: 'horizontal'
         size_hint: None, None
         size: sp(135), sp(135)
-        pos: 78,160
+        pos: 70,-10
         on_value: app.rain_volume(*args)
     
     Slider:
@@ -101,7 +108,7 @@
         orientation: 'horizontal'
         size_hint: None, None
         size: sp(135), sp(135)
-        pos: 268,160
+        pos: 260,-10
         on_value: app.fire_volume(*args)
 
     Slider:
@@ -112,7 +119,7 @@
         orientation: 'horizontal'
         size_hint: None, None
         size: sp(135), sp(135)
-        pos: 458,160
+        pos: 450,-10
         on_value: app.rainoncar_volume(*args)
 
     Slider:
@@ -123,7 +130,7 @@
         orientation: 'horizontal'
         size_hint: None, None
         size: sp(135), sp(135)
-        pos: 648,160
+        pos: 640,-10
         on_value: app.seawaves_volume(*args)
 
     Slider:
@@ -134,7 +141,62 @@
         orientation: 'horizontal'
         size_hint: None, None
         size: sp(135), sp(135)
-        pos: 838,160
+        pos: 830,-10
         on_value: app.wind_volume(*args)
+
+    Slider:
+        min:0.000
+        max:1.000
+        value: 0.2
+        step: 0.01
+        orientation: 'horizontal'
+        size_hint: None, None
+        size: sp(135), sp(135)
+        pos: 70,180
+        on_value: app.forest_volume(*args)
+    
+    Slider:
+        min:0.000
+        max:1.000
+        value: 0.2
+        step: 0.01
+        orientation: 'horizontal'
+        size_hint: None, None
+        size: sp(135), sp(135)
+        pos: 260,180
+        on_value: app.jazz_volume(*args)
+
+    Slider:
+        min:0.000
+        max:1.000
+        value: 0.2
+        step: 0.01
+        orientation: 'horizontal'
+        size_hint: None, None
+        size: sp(135), sp(135)
+        pos: 450,180
+        on_value: app.lofi_volume(*args)
+
+    Slider:
+        min:0.000
+        max:1.000
+        value: 0.2
+        step: 0.01
+        orientation: 'horizontal'
+        size_hint: None, None
+        size: sp(135), sp(135)
+        pos: 640,180
+        on_value: app.tibet_volume(*args)
+
+    Slider:
+        min:0.000
+        max:1.000
+        value: 0.2
+        step: 0.01
+        orientation: 'horizontal'
+        size_hint: None, None
+        size: sp(135), sp(135)
+        pos: 830,180
+        on_value: app.crowd_volume(*args)
 
         
