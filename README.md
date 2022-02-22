@@ -1,4 +1,4 @@
-# Project Title
+# SleepFix
 
 SleepFix is an application that lets you combine multiple sounds to create the perfect ambience.
 
